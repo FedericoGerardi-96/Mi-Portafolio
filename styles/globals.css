@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./AboutMe.css";
+
+.theme-light {
+  --background: #fff;
+  --background-secondary: #442f87;
+  --text: #442f87;
+
+  --primary: #ff0057;
+  --secondary: #ea429a;
+
+  --bg-input: #beb1e7;
+  --input-border: #e6e6ed;
+  --input-color: #442f87;
+}
+.theme-dark {
+  --background: #0b0719;
+  --background-secondary: #0b0719;
+  --text: #fff;
+
+  --primary: #ff0057;
+  --secondary: #ea429a;
+
+  --error: #dc3545;
+
+  --bg-input: #2b214d;
+  --input-border: #2b214d;
+  --input-color: #beb1e7;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--text) !important;
+  transition: color 1s ease, background 1s linear;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.circleClipPath {
+  clip-path: circle(50% at 50% 50%);
+}
+.dropShadowHover:hover {
+  -webkit-filter: drop-shadow(0px 0px 8px var(--text));
+  filter: drop-shadow(0px 0px 8px var(--text));
+}
+.perspective {
+  perspective: 1000px;
+}
+.transform_style {
+  transform-style: preserve-3d;
+}
+.backface_visibility {
+  backface-visibility: hidden;
+}
+.borderRadiusCustom {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+.borderRadiusCustom2 {
+  border-radius: 10% 82% 20% 60% / 87% 10% 60% 10%;
+}
+.scroll {
+  overflow-x: hidden;
+}
+.no-scroll {
+  overflow: hidden !important;
+  margin: 0;
+  height: 100%;
+}
+/* sweet alert buttons */
+.btn {
+  color: #fff;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid transparent;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.swal2-confirm {
+  background-color: #218838;
+  border: 1px solid #1e7e34;
+}
+.swal2-cancel {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
