@@ -37,11 +37,14 @@ export const CardProyectMobile = ({ proyect }: props) => {
             {Tittle}
           </h2>
           <p className={`text-grey500  group-hover:animate-animation`}>{Description}</p>
-          {tecnologias?.map((tecnologia, i) => (
-            <span className={`mt-4 text-grey500 group-hover:animate-animation`} key={i}>
-              {tecnologia} -
-            </span>
-          ))}
+          <p className={`mt-4 text-grey500 group-hover:animate-animation`}>Tecnologias: </p>
+          <div className={`flex flex-row`}>
+            {tecnologias?.map((tecnologia, i) => (
+              <span className={`text-grey500 group-hover:animate-animation`} key={i}>
+                {tecnologia} -
+              </span>
+            ))}
+          </div>
           <div className={`mt-4 flex flex-row flex-wrap items-center justify-evenly gap-5`}>
             <a
               className={`

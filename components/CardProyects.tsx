@@ -14,7 +14,7 @@ export const CardProyects = ({ proyect }: props) => {
   const { Tittle, Description, gitHubLink, pageLink, image, tecnologias } = proyect;
   return (
     <>
-      <div className="group relative h-auto w-[450px] rounded-2xl p-2 transition-opacity duration-500">
+      <div className="group relative h-full w-full rounded-2xl p-2 transition-opacity duration-500">
         <div
           className="relative 
                     after:absolute 
@@ -27,7 +27,7 @@ export const CardProyects = ({ proyect }: props) => {
                   group-hover:after:bg-[rgba(0,0,0,0.4)]"
         >
           <img
-            className={`block h-[230px] w-[450px] rounded-2xl object-cover`}
+            className={`block h-full min-h-[230px] w-full max-w-[450px] rounded-2xl object-cover`}
             width={0}
             height={0}
             src={image}
@@ -37,12 +37,13 @@ export const CardProyects = ({ proyect }: props) => {
             className=" 
                       ease 
                       absolute
-                      left-0 
-                      right-0
+                      left-0
+                      right-0 
                       bottom-0
                       top-0
-                      z-10 
+                      z-10
                       flex 
+                      h-full 
                       cursor-default 
                       flex-col 
                       flex-nowrap 
@@ -64,7 +65,8 @@ export const CardProyects = ({ proyect }: props) => {
                         bottom-0 
                         top-0
                         z-20
-                        flex 
+                        flex
+                        h-full 
                         flex-col
                         items-center
                         justify-center
@@ -75,12 +77,15 @@ export const CardProyects = ({ proyect }: props) => {
                         group-hover:opacity-100`}
           >
             <h1 className={`text-[2rem] font-bold text-grey500 group-hover:animate-galleryText`}>{Tittle}</h1>
-            <p className={`text-grey500  group-hover:animate-animation`}>{Description}</p>
-            {tecnologias?.map((tecnologia, i) => (
-              <span className={`mt-4 text-grey500 group-hover:animate-animation`} key={i}>
-                {tecnologia} -
-              </span>
-            ))}
+            <p className={`text-grey500 group-hover:animate-animation`}>{Description}</p>
+            <p className={`mt-4 text-grey500 group-hover:animate-animation`}>Tecnologias: </p>
+            <div className={`flex flex-row`}>
+              {tecnologias?.map((tecnologia, i) => (
+                <span className={` border-grey500 text-center text-grey500 group-hover:animate-animation`} key={i}>
+                  {tecnologia}&nbsp; &nbsp; &nbsp;
+                </span>
+              ))}
+            </div>
             <div className={`mt-4 flex items-center justify-evenly gap-5`}>
               <a
                 className={`
