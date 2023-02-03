@@ -8,13 +8,17 @@ import { PortfolioContext } from "../../context/portfolio";
 
 import { CardProyects } from "../../components";
 import { CardProyectMobile } from "../../components/CardProyectMobile";
+import { AuthContext } from "../../context";
 
 const Trabajos = () => {
   const [isLoading, setisLoading] = useState(true);
-  const { Proyects } = useContext(PortfolioContext);
+  const { Proyects, getProyects, isSaving } = useContext(PortfolioContext);
+  const { setLogUser } = useContext(AuthContext);
 
   useEffect(() => {
     setTimeout(() => {
+      getProyects();
+      setLogUser();
       setisLoading(false);
     }, 500);
   }, []);
@@ -22,7 +26,7 @@ const Trabajos = () => {
   return (
     <>
       <Layout title="Trabajos" pageDescription="Trabajos realizados por mi">
-        {isLoading ? (
+        {isLoading && isSaving ? (
           <Loader />
         ) : (
           <motion.section

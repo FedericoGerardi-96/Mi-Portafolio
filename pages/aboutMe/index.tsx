@@ -10,12 +10,20 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { Layout, Loader } from "../../components";
 
 import { PortfolioContext } from "../../context/portfolio";
+import { AuthContext, ThemeContext } from "../../context";
 
 const AboutMe = () => {
   const [isLoading, setisLoading] = useState(true);
-  const { Experiences, Educations } = useContext(PortfolioContext);
+  const { Experiences, Educations, getExperience, getEducation } = useContext(PortfolioContext);
+  const { getLocalStorageActiveTheme } = useContext(ThemeContext);
+  const { setLogUser } = useContext(AuthContext);
+
   useEffect(() => {
     setTimeout(() => {
+      getExperience();
+      getEducation();
+      getLocalStorageActiveTheme();
+      setLogUser();
       setisLoading(false);
     }, 500);
   }, []);

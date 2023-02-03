@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "./AboutMe.css";
+@import "./Custom404.css";
 
 .theme-light {
   --background: #fff;

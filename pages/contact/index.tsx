@@ -16,10 +16,14 @@ import { useForm } from "react-hook-form";
 import { insertMessage } from "../../helpers/contactMessage";
 import { validations } from "../../utilities";
 import { PortfolioContext } from "../../context/portfolio";
+import { AuthContext, ThemeContext } from "../../context";
 
 const Contact = () => {
   const [isLoading, setisLoading] = useState(true);
   const [isSaving, setisSaving] = useState(false);
+  const { getLocalStorageActiveTheme } = useContext(ThemeContext);
+  const { setLogUser } = useContext(AuthContext);
+
 
   type FormData = {
     name: string;
@@ -35,6 +39,8 @@ const Contact = () => {
 
   useEffect(() => {
     setTimeout(() => {
+      getLocalStorageActiveTheme();
+      setLogUser();
       setisLoading(false);
     }, 500);
   }, []);

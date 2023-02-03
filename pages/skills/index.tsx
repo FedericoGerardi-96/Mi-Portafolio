@@ -4,20 +4,26 @@ import { motion } from "framer-motion";
 
 import { CardSkills, Layout, Loader } from "../../components";
 import { PortfolioContext } from "../../context/portfolio";
+import { AuthContext, ThemeContext } from "../../context";
 
 const Skills = () => {
   const [isLoading, setisLoading] = useState(true);
-  const { Skills } = useContext(PortfolioContext);
+  const { Skills, getSkills, isSaving } = useContext(PortfolioContext);
+  const { getLocalStorageActiveTheme } = useContext(ThemeContext);
+  const { setLogUser } = useContext(AuthContext);
 
   useEffect(() => {
     setTimeout(() => {
+      getSkills();
+      getLocalStorageActiveTheme();
+      setLogUser();
       setisLoading(false);
     }, 500);
   }, []);
 
   return (
     <Layout title="Sobre Mi" pageDescription="Informacion sobre mi">
-      {isLoading ? (
+      {isLoading && isSaving ? (
         <Loader />
       ) : (
         <motion.section

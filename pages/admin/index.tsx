@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faXmark, faFile } from "@fortawesome/free-solid-svg-icons";
 
-import { AuthContext } from "../../context";
+import { AuthContext, ThemeContext } from "../../context";
 import { Layout } from "../../components/layout";
 
 import { PortfolioContext } from "../../context/portfolio";
@@ -31,6 +31,20 @@ const Admin = () => {
       return null;
     }
   }
+
+  const { getLocalStorageActiveTheme } = useContext(ThemeContext);
+  const { getPortafolioURL, getExperience,getSkills, getEducation, getProyects } = useContext(PortfolioContext);
+  const { setLogUser } = useContext(AuthContext);
+  
+  useEffect(() => {
+      setLogUser();
+      getLocalStorageActiveTheme();
+      getPortafolioURL();
+      getSkills();
+      getProyects();
+      getExperience();
+      getEducation();    
+  }, []);
 
   return (
     <Layout title="Admin" pageDescription="Pagina para administrar el portafolio">
