@@ -11,51 +11,34 @@ export const CardSkills = ({ skills }: props) => {
 
   return (
     <>
-      <div className={`perspective group h-[150px] w-[150px] bg-transparent`}>
-        <div
-          className={`
-                            transform_style
-                            relative 
-                            h-full 
-                            w-full 
-                            text-center
-                            transition-transform 
-                            duration-500
-                            group-hover:rotate-y-180`}
-        >
-          <div
-            className={`backface_visibility 
-                        absolute
-                        flex 
-                        h-full 
-                        w-full 
-                        flex-col 
-                        items-center 
-                        justify-center 
-                        rounded-2xl
-                        bg-transparent 
-                        `}
-          >
-            {/* <p className="m-0 text-center text-[1.5rem] font-black">{Tittle}</p> */}
-            <Image className={`mt-4`} alt={Tittle!} width={150} height={150} src={image}></Image>
-          </div>
-          <div
-            className={`backface_visibility                                
-                        absolute
-                        flex
-                        h-full 
-                        w-full 
-                        flex-col 
-                        justify-center 
-                        rounded-2xl 
-                        bg-salmon 
-                        p-4
-                        rotate-y-180`}
-          >
-            <p className="m-0 text-center text-[1.2rem] font-black text-white">{Tittle}</p>
-            <p className="m-0 text-center text-[1rem] text-white">{Description}</p>
-          </div>
-        </div>       
+      <div
+        className={`
+                    ease
+                    m-2
+                    flex 
+                    h-auto 
+                    w-[20rem] 
+                    cursor-default  
+                    items-center
+                    rounded-[28px] 
+                    border-[1px] 
+                    border-[#dbdbdb]
+                    bg-[rgb(232,235,236,70%)]
+                    p-3
+                    shadow-[0_5px_15px_rgba(0,0,0,0.35)]
+                    md:shadow-none
+                    hover:shadow-[0_5px_15px_rgba(0,0,0,0.35)]
+                    transition-all
+                    duration-300
+       `}
+      >
+        <div className={`mr-4 flex items-center justify-center rounded-3xl`}>
+          <img className={`h-[70px] w-[70px] object-contain`} src={image} alt={Tittle} />
+        </div>
+        <div className={`w-full text-left`}>
+          <h6 className={`mb-1 text-[16px] font-medium text-black`}>{Tittle}</h6>
+          <p className={`text-[14px] font-normal leading-5 text-[#4A4A4A]`}>{Description}</p>
+        </div>
       </div>
     </>
   );

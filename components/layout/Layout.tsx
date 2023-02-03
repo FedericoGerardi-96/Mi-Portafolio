@@ -18,7 +18,7 @@ export const Layout: FC<PropsWithChildren<Props>> = ({ children, title, pageDesc
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SideBar />
-      <main>{children}</main>
+      <main className={`container mx-auto h-full w-full`}>{children}</main>
     </>
   );
 };

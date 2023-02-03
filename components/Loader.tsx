@@ -8,7 +8,7 @@ export const Loader = () => {
   const constraintsRef = useRef(null);
   return (
     <div
-      className={`container mx-auto flex h-screen w-screen items-center justify-center overflow-hidden`}
+      className={`container mx-auto flex h-[75vh] w-screen items-center justify-center overflow-hidden`}
       ref={constraintsRef}
     >
       <motion.div

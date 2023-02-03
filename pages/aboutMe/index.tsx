@@ -3,8 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faFacebook, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faMailchimp, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faBagShopping, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 import { Layout, Loader } from "../../components";
 
@@ -36,8 +37,8 @@ const AboutMe = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 3 }}
-          className={`container mx-auto px-8 py-12 text-center`}
+          transition={{ duration: 2 }}
+          className={`container mx-auto px-4 py-12 text-center lg:px-12`}
         >
           <motion.h1
             initial={{ opacity: 0, y: -1000 }}
@@ -192,11 +193,12 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                   target="_blank"
+                  className={`flex items-center justify-center`}
                   href="https://github.com/FedericoGerardi-96"
                 >
                   <motion.div>
                     <FontAwesomeIcon
-                      className={`dropShadowHover m-0 w-12 text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:text-[4.5rem]`}
+                      className={`dropShadowHover m-0 w-12 min-w-[3rem] text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:min-w-[4.5rem] md:text-[4.5rem]`}
                       icon={faGithub}
                     />
                   </motion.div>
@@ -205,12 +207,13 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0, transition: { duration: 1.2 } }}
                   target="_blank"
-                  href="https://www.facebook.com/federico.gerardi.9"
+                  className={`flex items-center justify-center`}
+                  href="https://api.whatsapp.com/send?phone=+541134184649&text=¡Buen día! Estoy interesado en comunicarme con usted"
                 >
                   <motion.div>
                     <FontAwesomeIcon
-                      className={`dropShadowHover m-0 w-12 text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:text-[4.5rem]`}
-                      icon={faFacebook}
+                      className={`dropShadowHover m-0 w-12 min-w-[3rem] text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:min-w-[4.5rem] md:text-[4.5rem]`}
+                      icon={faWhatsapp}
                     />
                   </motion.div>
                 </motion.a>
@@ -218,11 +221,12 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0, transition: { duration: 1.3 } }}
                   target="_blank"
+                  className={`flex items-center justify-center`}
                   href="https://www.linkedin.com/in/federico-gerardi96/"
                 >
                   <motion.div>
                     <FontAwesomeIcon
-                      className={`dropShadowHover m-0 w-12 text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:text-[4.5rem]`}
+                      className={`dropShadowHover m-0 w-12 min-w-[3rem] text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:min-w-[4.5rem] md:text-[4.5rem]`}
                       icon={faLinkedin}
                     />
                   </motion.div>
@@ -231,12 +235,13 @@ const AboutMe = () => {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0, transition: { duration: 1.4 } }}
                   target="_blank"
-                  href="https://www.instagram.com/gerardi_federico/"
+                  className={`flex items-center justify-center`}
+                  href="mailto:gerardi9690@gmail.com"
                 >
                   <motion.div>
                     <FontAwesomeIcon
-                      className={`dropShadowHover m-0 w-12 text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:text-[4.5rem]`}
-                      icon={faInstagram}
+                      className={`dropShadowHover m-0 w-12 min-w-[3rem] text-[3rem] text-text md:my-0 md:mx-8 md:w-[4.5rem] md:min-w-[4.5rem] md:text-[4.5rem]`}
+                      icon={faEnvelope}
                     />
                   </motion.div>
                 </motion.a>
@@ -251,7 +256,7 @@ const AboutMe = () => {
                         after:block 
                         after:h-1 
                         after:w-1/2 
-                        after:bg-green 
+                        after:bg-salmon 
                         sm:text-[1.5rem] 
                         md:text-[1.8rem] 
                         lg:text-[2.2rem] 
@@ -268,16 +273,16 @@ const AboutMe = () => {
                   className={`
                         relative
                         py-8 
-                        text-[2rem] 
+                        text-[1.2rem]
                         after:absolute 
                         after:left-1/4 
                         after:block 
                         after:h-1 
                         after:w-1/2 
                         after:bg-grey 
-                        sm:text-[1rem] 
-                        md:text-[1.2rem] 
-                        lg:text-[2.4rem] 
+                        sm:text-[1.2rem] 
+                        md:text-[1.3rem] 
+                        lg:text-[2.5rem] 
                         xl:text-[1.6rem] 
                         xxl:text-[2rem]`}
                   initial={{ x: -1000 }}
@@ -293,14 +298,14 @@ const AboutMe = () => {
                       initial={{ x: -1000 }}
                       animate={{ x: 0, transition: { duration: 2, delay: i + 0.2 } }}
                     >
-                      <h3 className={`mb-3 text-left text-salmon`}>{posición}</h3>
+                      <h3 className={`mb-3 max-w-[75%] text-left text-text`}>{company}</h3>
                       <div className={`flex justify-between gap-6`}>
                         <div className={`flex items-center gap-4`}>
                           <FontAwesomeIcon
-                            className={`m-0 w-4 text-[1rem] text-grey md:w-[1.5rem] md:text-[1.5rem]`}
+                            className={`m-0 w-4 min-w-[1rem] text-[1rem] text-grey md:w-[1.5rem] md:text-[1.5rem]`}
                             icon={faBagShopping}
                           />
-                          <p className={`text-grey`}>{company}</p>
+                          <p className={`text-text`}>{posición}</p>
                         </div>
                         <span className={`text-grey`}>
                           {workSince} - {workTo}
@@ -315,16 +320,16 @@ const AboutMe = () => {
                   className={`
                         relative
                         py-8 
-                        text-[2rem] 
+                        text-[1.2rem]
                         after:absolute 
                         after:left-1/4 
                         after:block 
                         after:h-1 
                         after:w-1/2 
                         after:bg-grey 
-                        sm:text-[1rem] 
-                        md:text-[1.2rem] 
-                        lg:text-[2.4rem] 
+                        sm:text-[1.2rem] 
+                        md:text-[1.3rem] 
+                        lg:text-[2.5rem] 
                         xl:text-[1.6rem] 
                         xxl:text-[2rem]`}
                   initial={{ x: 1000 }}
@@ -340,14 +345,14 @@ const AboutMe = () => {
                       initial={{ x: 1000 }}
                       animate={{ x: 0, transition: { duration: 2, delay: i + 0.2 } }}
                     >
-                      <h3 className={`mb-3 text-left text-salmon`}>{tittle}</h3>
+                      <h3 className={`mb-3 max-w-[75%] text-left text-text`}>{place}</h3>
                       <div className={`flex justify-between gap-6`}>
                         <div className={`flex items-center gap-4`}>
                           <FontAwesomeIcon
-                            className={`m-0 w-4 text-[1rem] text-grey md:w-[1.5rem] md:text-[1.5rem]`}
+                            className={`m-0 w-4 min-w-[1rem] text-[1rem] text-grey md:w-[1.5rem] md:text-[1.5rem]`}
                             icon={faBook}
                           />
-                          <p className={`text-grey`}>{place}</p>
+                          <p className={`text-text`}>{tittle}</p>
                         </div>
                         <span className={`text-grey`}>
                           {start} - {finish}

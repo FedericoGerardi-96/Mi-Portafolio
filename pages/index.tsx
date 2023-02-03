@@ -28,23 +28,24 @@ export default function Home() {
         <Loader />
       ) : (
         <>
-          <section className={`container mx-auto py-8`} id="hellow">
+          <section className={`flex h-[80vh] w-full items-center justify-center overflow-hidden md:h-full`} id="hellow">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className={`flex flex-col items-center justify-center md:flex-row md:justify-between`}
+              className={`grid grid-cols-herMobile items-center justify-items-center md:grid-cols-hero md:gap-8`}
             >
               <div>
                 <motion.h1
                   className={`
+                  text-center
                   text-[2.5rem] 
                   text-text 
-                  sm:text-[3rem] 
-                  md:text-[3.5rem] 
+                  md:text-left 
+                  md:text-[3rem]
                   lg:text-[4rem] 
-                  xl:text-[5rem] 
-                  xxl:text-[6rem]`}
+                  xl:text-[4.5rem] 
+                  xxl:text-[5rem]`}
                   initial={{ x: -1000 }}
                   animate={{ x: 0, transition: { duration: 1 } }}
                 >
@@ -52,16 +53,18 @@ export default function Home() {
                 </motion.h1>
                 <motion.h1
                   className={`
-                  text-[2.5rem] 
-                  font-bold
-                  text-salmon
+                  text-center 
+                  text-[2.5rem]
+                  font-bold 
+                  text-salmon 
+                  text-text
                   transition-colors 
                   duration-500 
-                  sm:text-[3rem] 
-                  md:text-[3.5rem]
-                  lg:text-[4rem]
-                  xl:text-[5rem] 
-                  xxl:text-[6rem]`}
+                  md:text-left 
+                  md:text-[2.7rem]
+                  lg:text-[4rem] 
+                  xl:text-[4.5rem] 
+                  xxl:text-[5rem]`}
                   initial={{ x: -1000 }}
                   animate={{ x: 0, transition: { duration: 1 } }}
                 >
@@ -70,20 +73,26 @@ export default function Home() {
                 <motion.h3
                   className={`
                   mb-8
-                  text-[.8rem] 
+                  text-center 
+                  text-[2rem]
                   font-bold
                   text-text
-                  sm:text-[1rem] 
-                  md:text-[1.5rem]
-                  lg:text-[2rem]
-                  xl:text-[2.5rem] 
-                  xxl:text-[3rem]`}
+                  sm:text-[2.2rem]
+                  md:text-left 
+                  md:text-[2.5rem]
+                  lg:text-[2.7rem]
+                  xl:text-[3.5rem] 
+                  xxl:text-[4rem]`}
                   initial={{ x: -1000 }}
                   animate={{ x: 0, transition: { duration: 1 } }}
                 >
                   FullStack Developer
                 </motion.h3>
-                <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { duration: 1 } }}>
+                <motion.div
+                  className={`flex items-center justify-center md:justify-start`}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1, transition: { duration: 1 } }}
+                >
                   <motion.a
                     target="_blank"
                     href={UrlCurriculum}
@@ -116,7 +125,7 @@ export default function Home() {
               >
                 <Image
                   draggable={false}
-                  className={`w-[20rem] object-contain md:w-[20rem] lg:w-[25rem]`}
+                  className={` hidden h-auto w-[25rem] object-contain md:block`}
                   alt="Makise Kurisu"
                   src={Kurisu}
                 ></Image>

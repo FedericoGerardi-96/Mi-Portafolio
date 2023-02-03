@@ -69,7 +69,7 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 3 }}
-          className={`container mx-auto p-8 text-center`}
+          className={`container mx-auto px-8 pb-14 text-center`}
         >
           <motion.h1
             className={`relative text-[2rem] 
@@ -156,10 +156,12 @@ const Contact = () => {
               </motion.a>
             </div>
           </div>
-          <div>
-            <form onSubmit={handleSubmit(onSendMessage)} className={`mt-12`}>
-              <motion.h2
-                className={`
+          <form
+            onSubmit={handleSubmit(onSendMessage)}
+            className={`mt-12 rounded-3xl p-6 shadow-[0_5px_15px_rgba(0,0,0,0.35)]`}
+          >
+            <motion.h2
+              className={`
                         relative
                         py-8 
                         text-[2rem] 
@@ -174,15 +176,15 @@ const Contact = () => {
                         lg:text-[2.4rem] 
                         xl:text-[3rem] 
                         xxl:text-[3.2rem]`}
-                initial={{ x: 1000 }}
-                animate={{ x: 0, transition: { duration: 2 } }}
-              >
-                Dejar un mensaje
-              </motion.h2>
-              <div className={`flex w-full flex-col items-start justify-center`}>
-                <motion.input
-                  id="name"
-                  className={`
+              initial={{ x: 1000 }}
+              animate={{ x: 0, transition: { duration: 2 } }}
+            >
+              Dejar un mensaje
+            </motion.h2>
+            <div className={`flex w-full flex-col items-start justify-center`}>
+              <motion.input
+                id="name"
+                className={`
                     w-full  
                     rounded-md 
                     border-[1px] 
@@ -197,20 +199,20 @@ const Contact = () => {
                     focus:outline-none 
                     active:bg-inputBg 
                     active:outline-none`}
-                  initial={{ x: 2000 }}
-                  animate={{ x: 0, transition: { duration: 1.3, delay: 1 } }}
-                  placeholder="Nombre"
-                  type="text"
-                  {...register("name", {
-                    required: "Este campo es requerido",
-                  })}
-                />
-                {!!errors.name && <p className={`text-error`}>{errors.name.message}</p>}
-              </div>
-              <div className={`mt-6 flex w-full flex-col items-start justify-center`}>
-                <motion.input
-                  id="email"
-                  className={`
+                initial={{ x: 2000 }}
+                animate={{ x: 0, transition: { duration: 1.3, delay: 1 } }}
+                placeholder="Nombre"
+                type="text"
+                {...register("name", {
+                  required: "Este campo es requerido",
+                })}
+              />
+              {!!errors.name && <p className={`text-error`}>{errors.name.message}</p>}
+            </div>
+            <div className={`mt-6 flex w-full flex-col items-start justify-center`}>
+              <motion.input
+                id="email"
+                className={`
                     w-full  
                     rounded-md
                     border-[1px] 
@@ -225,21 +227,21 @@ const Contact = () => {
                     focus:outline-none 
                     active:bg-inputBg 
                     active:outline-none`}
-                  initial={{ x: 2000 }}
-                  animate={{ x: 0, transition: { duration: 1.3, delay: 1.5 } }}
-                  placeholder="E-mail"
-                  type="text"
-                  {...register("email", {
-                    required: "Este campo es requerido",
-                    validate: validations.isEmail,
-                  })}
-                />
-                {!!errors.email && <p className={`text-error`}>{errors.email.message}</p>}
-              </div>
-              <div className={`mt-6 flex w-full flex-col items-start justify-center`}>
-                <motion.input
-                  id="message"
-                  className={`
+                initial={{ x: 2000 }}
+                animate={{ x: 0, transition: { duration: 1.3, delay: 1.5 } }}
+                placeholder="E-mail"
+                type="text"
+                {...register("email", {
+                  required: "Este campo es requerido",
+                  validate: validations.isEmail,
+                })}
+              />
+              {!!errors.email && <p className={`text-error`}>{errors.email.message}</p>}
+            </div>
+            <div className={`mt-6 flex w-full flex-col items-start justify-center`}>
+              <motion.input
+                id="message"
+                className={`
                     w-full  
                     rounded-md 
                     border-[1px] 
@@ -254,21 +256,22 @@ const Contact = () => {
                     focus:outline-none 
                     active:bg-inputBg 
                     active:outline-none`}
-                  initial={{ x: 2000 }}
-                  animate={{ x: 0, transition: { duration: 1.3, delay: 2 } }}
-                  placeholder="Mensaje"
-                  type="text"
-                  {...register("message", {
-                    required: "Este campo es requerido",
-                  })}
-                />
-                {!!errors.message && <p className={`text-error`}>{errors.message.message}</p>}
-              </div>
-              <motion.button
-                disabled={isSaving}
-                type="submit"
-                className={`
+                initial={{ x: 2000 }}
+                animate={{ x: 0, transition: { duration: 1.3, delay: 2 } }}
+                placeholder="Mensaje"
+                type="text"
+                {...register("message", {
+                  required: "Este campo es requerido",
+                })}
+              />
+              {!!errors.message && <p className={`text-error`}>{errors.message.message}</p>}
+            </div>
+            <motion.button
+              disabled={isSaving}
+              type="submit"
+              className={`
                           mt-8
+                          mb-3
                           rounded-[10px] 
                           border-0 
                           bg-[rgb(255,56,86)]
@@ -285,13 +288,12 @@ const Contact = () => {
                           active:shadow-[0_0_0_0_rgb(201,46,70)]
                           active:duration-200
                       `}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1, transition: { duration: 1.3, delay: 2.2 } }}
-              >
-                Enviar
-              </motion.button>
-            </form>
-          </div>
+              initial={{ scale: 0 }}
+              animate={{ scale: 1, transition: { duration: 1.3, delay: 2.2 } }}
+            >
+              Enviar
+            </motion.button>
+          </form>
         </motion.section>
       )}
     </Layout>

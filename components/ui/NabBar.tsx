@@ -52,7 +52,7 @@ const liSideNabAnimation = {
     opacity: 0,
     x: -300,
     transition: {
-      duration: 0.5,
+      duration: 0.2,
     },
   },
   visible: ({ delay }: any) => ({
@@ -60,7 +60,7 @@ const liSideNabAnimation = {
     x: 0,
     transition: {
       delay,
-      duration: 0.3,
+      duration: 0.2,
     },
   }),
 };
@@ -112,7 +112,7 @@ export const SideBar = () => {
         className={`
         static
         left-0 top-0 
-        z-[99] h-[7.5rem] 
+        z-[97] h-[7.5rem] 
         w-full  
         bg-backgroundSecondary 
         backdrop-blur-sm`}
@@ -238,18 +238,15 @@ export const SideBar = () => {
         fixed
         top-0 
         left-0 
-        z-[999] 
+        z-[99] 
         block 
         h-full 
-        w-[35%] ${ThemeActive == "theme-dark" ? "bg-background" : "bg-white"} lg:hidden `}
+        w-screen
+        md:w-[55%] ${ThemeActive == "theme-dark" ? "bg-background" : "bg-white"} lg:hidden `}
         initial={"hidden"}
         variants={sideBarOpenAnimation}
         animate={toggleNav ? "visible" : "hidden"}
       >
-        <div
-          onClick={toggleSideBar}
-          className={`absolute z-[90] ${toggleNav ? "block" : "hidden"} h-screen w-screen bg-[rgba(0,0,0,0.6)]  `}
-        />
         <div className={`relative z-[99] flex h-full flex-col justify-evenly`}>
           <div className={"flex justify-end"}>
             <FontAwesomeIcon
@@ -266,7 +263,7 @@ export const SideBar = () => {
                   p-4xl relative flex w-full justify-center overflow-hidden 
                   border-t-[1px] border-b-[1px] border-[var(--box-shadow)] py-[2rem]
                   `}
-                  custom={{ delay: (key + 1) * 0.4 }}
+                  custom={{ delay: (key + 1) * 0.2 }}
                   initial="hidden"
                   animate={toggleNav ? "visible" : "hidden"}
                   variants={liSideNabAnimation}
@@ -308,7 +305,7 @@ export const SideBar = () => {
                 <motion.div
                   animate={
                     toggleNav
-                      ? { x: 0, opacity: 1, transition: { duration: 0.5, delay: 2.4 } }
+                      ? { x: 0, opacity: 1, transition: { duration: 0.5, delay: 1.2 } }
                       : { x: -1000, opacity: 0 }
                   }
                   className={`text-link my-4 flex cursor-pointer items-center text-[1.1rem] hover:text-secondaryColor`}
@@ -323,7 +320,7 @@ export const SideBar = () => {
                 <motion.div
                   animate={
                     toggleNav
-                      ? { x: 0, opacity: 1, transition: { duration: 0.5, delay: 2.8 } }
+                      ? { x: 0, opacity: 1, transition: { duration: 0.5, delay: 1.4 } }
                       : { x: -1000, opacity: 0 }
                   }
                   className={`text-link my-4 flex cursor-pointer items-center text-[1.1rem] hover:text-secondaryColor`}
@@ -341,6 +338,12 @@ export const SideBar = () => {
           </motion.ul>
         </div>
       </motion.div>
+      <div
+        onClick={toggleSideBar}
+        className={`absolute top-0 left-0 z-[98] ${
+          toggleNav ? "block" : "hidden"
+        } h-screen w-screen bg-[rgba(0,0,0,0.6)]  `}
+      />
     </>
   );
 };

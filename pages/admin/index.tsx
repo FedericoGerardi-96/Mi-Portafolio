@@ -20,15 +20,16 @@ import { deleteMessage, getMessage } from "../../helpers/contactMessage";
 import { Imessage } from "../../interfaces/MessageContact";
 
 import Cry from "../../public/Cry.png";
-import { finished } from "stream";
 
 const Admin = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
 
   if (!isLoggedIn) {
-    router.push("/");
-    return null;
+    if (typeof window !== "undefined") {
+      router.push("/");
+      return null;
+    }
   }
 
   return (
@@ -38,7 +39,7 @@ const Admin = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 3 }}
-        className={`px- container mx-auto mt-24`}
+        className={`container mx-auto px-4 md:p-8 lg:p-10`}
       >
         <h1
           className={`
@@ -86,9 +87,9 @@ export const CurriculumUrl = () => {
     Swal.fire("Error", "Error al actualizar", "warning");
   };
   return (
-    <section className={`justify-centers mt-12 flex w-full flex-col`} id="portalofio_URL">
+    <section className={`justify-centers mt-8 flex w-full flex-col`} id="portalofio_URL">
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -98,7 +99,7 @@ export const CurriculumUrl = () => {
         Url Curriculum
       </h1>
       <form className={`w-full`} onSubmit={handleSubmit(onUpdatePortafolio)}>
-        <div className={`mx-12`}>
+        <div className={`md:mx-12`}>
           <div className={`flex w-full flex-col items-start justify-center`}>
             <input
               id="UrlCurriculum"
@@ -192,9 +193,9 @@ export const Skills = () => {
   };
 
   return (
-    <section className={`my-12 w-full`}>
+    <section className={`my-8 w-full`}>
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -217,7 +218,7 @@ export const Skills = () => {
         <p className={`text-error ${imageSelected ? "hidden" : "block"}`}>Debe seleccionar una imagen</p>
       </div>
       <form onSubmit={handleSubmit(onInsertSkill)}>
-        <div className={`mx-12`}>
+        <div className={`md:mx-12`}>
           <div className={`flex w-full flex-col items-start justify-center`}>
             <input
               id="Tittle"
@@ -516,12 +517,14 @@ const SkilModal = ({ Skills, modalView, setmodalView }: skillProps) => {
         className={`relative 
                     z-[99] 
                     h-auto
-                    w-[35rem] 
+                    w-[25rem]
                     rounded-3xl 
-                    bg-background 
+                    bg-background
                     p-8 
-                    text-text
-                    shadow-[0_7px_20px_0_var(--box-shadow)]`}
+                    text-text 
+                    shadow-[0_7px_20px_0_var(--box-shadow)] 
+                    md:w-[35rem]
+                    lg:w-[40rem]`}
       >
         <div className={`w-full p-4 text-end`}>
           <FontAwesomeIcon
@@ -687,9 +690,9 @@ export const Proyects = () => {
   };
 
   return (
-    <section className={`my-12 w-full`}>
+    <section className={`my-8 w-full`}>
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -712,7 +715,7 @@ export const Proyects = () => {
         <p className={`text-error ${imageSelected ? "hidden" : "block"}`}>Debe seleccionar una imagen</p>
       </div>
       <form onSubmit={handleSubmit(onInsertProyect)}>
-        <div className={`mx-12`}>
+        <div className={`md:mx-12`}>
           <div className={`flex w-full flex-col items-start justify-center`}>
             <input
               id="Tittle"
@@ -1144,12 +1147,14 @@ const ProyectModal = ({ Proyect, modalView, setmodalView }: proyectProps) => {
                     relative 
                     z-[99] 
                     h-auto 
-                    w-[35rem] 
-                    rounded-3xl 
+                    w-[25rem] 
+                    rounded-3xl
                     bg-background 
-                    p-8 
-                    text-text
-                    shadow-[0_7px_20px_0_var(--box-shadow)]`}
+                    p-8
+                    text-text 
+                    shadow-[0_7px_20px_0_var(--box-shadow)] 
+                    md:w-[35rem]
+                    lg:w-[40rem]`}
       >
         <div className={`w-full p-4 text-end`}>
           <FontAwesomeIcon
@@ -1190,7 +1195,7 @@ const ProyectModal = ({ Proyect, modalView, setmodalView }: proyectProps) => {
               py-2 
               px-2 
               text-imputColor 
-                    placeholder:text-imputColor  
+              placeholder:text-imputColor  
               focus:bg-inputBg 
               focus:outline-none 
               active:bg-inputBg 
@@ -1434,9 +1439,9 @@ export const Experience = () => {
   };
 
   return (
-    <section className={`my-12 w-full`}>
+    <section className={`my-8 w-full`}>
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -1446,7 +1451,7 @@ export const Experience = () => {
         EXPERIENCIA LABORAL
       </h1>
       <form onSubmit={handleSubmit(onInsertProyect)}>
-        <div className={`mx-12`}>
+        <div className={`md:mx-12`}>
           <div className={`flex w-full flex-col items-start justify-center`}>
             <input
               id="posición"
@@ -1845,12 +1850,14 @@ const ExperienceModal = ({ Experience, modalView, setmodalView }: experienceProp
                     relative 
                     z-[99] 
                     h-auto 
-                    w-[35rem] 
-                    rounded-3xl 
+                    w-[25rem]
+                    rounded-3xl
                     bg-background 
                     p-8 
-                    text-text
-                    shadow-[0_7px_20px_0_var(--box-shadow)]`}
+                    text-text 
+                    shadow-[0_7px_20px_0_var(--box-shadow)] 
+                    md:w-[35rem]
+                    lg:w-[40rem]`}
       >
         <div className={`w-full p-4 text-end`}>
           <FontAwesomeIcon
@@ -1860,25 +1867,25 @@ const ExperienceModal = ({ Experience, modalView, setmodalView }: experienceProp
           />
         </div>
         <form onSubmit={handleSubmit(onUpdateExperience)}>
-          <div className={`mx-12`}>
+          <div className={`md:mx-12`}>
             <div className={`flex w-full flex-col items-start justify-center`}>
               <input
                 id="posición"
                 className={`
-              mt-8
-              w-full 
-              rounded-md 
-              border-[1px] 
-              border-inputBorder
-              bg-inputBg 
-              py-2 
-              px-2 
-              text-imputColor 
-                    placeholder:text-imputColor  
-              focus:bg-inputBg 
-              focus:outline-none 
-              active:bg-inputBg 
-              active:outline-none`}
+                      mt-8
+                      w-full 
+                      rounded-md 
+                      border-[1px] 
+                      border-inputBorder
+                      bg-inputBg 
+                      py-2 
+                      px-2 
+                      text-imputColor 
+                            placeholder:text-imputColor  
+                      focus:bg-inputBg 
+                      focus:outline-none 
+                      active:bg-inputBg 
+                      active:outline-none`}
                 placeholder="Posicion"
                 type="text"
                 {...register("posición", {
@@ -2091,9 +2098,9 @@ export const Education = () => {
   };
 
   return (
-    <section className={`my-12 w-full`}>
+    <section className={`my-8 w-full`}>
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -2103,7 +2110,7 @@ export const Education = () => {
         EDUCACION
       </h1>
       <form onSubmit={handleSubmit(onInsertEducation)}>
-        <div className={`mx-12`}>
+        <div className={`md:mx-12`}>
           <div className={`flex w-full flex-col items-start justify-center`}>
             <input
               id="tittle"
@@ -2509,12 +2516,14 @@ const EducationModal = ({ Education, modalView, setmodalView }: educationProps) 
                     relative 
                     z-[99]
                     h-auto 
-                    w-[35rem] 
-                    rounded-3xl 
+                    w-[25rem]
+                    rounded-3xl
                     bg-background 
                     p-8 
-                    text-text
-                    shadow-[0_7px_20px_0_var(--box-shadow)]`}
+                    text-text 
+                    shadow-[0_7px_20px_0_var(--box-shadow)] 
+                    md:w-[35rem]
+                    lg:w-[40rem]`}
       >
         <div className={`w-full p-4 text-end`}>
           <FontAwesomeIcon
@@ -2524,7 +2533,7 @@ const EducationModal = ({ Education, modalView, setmodalView }: educationProps) 
           />
         </div>
         <form onSubmit={handleSubmit(onUpdateEducation)}>
-          <div className={`mx-12`}>
+          <div className={`md:mx-12`}>
             <div className={`flex w-full flex-col items-start justify-center`}>
               <input
                 id="tittle"
@@ -2750,9 +2759,9 @@ export const MessageList = () => {
   };
 
   return (
-    <section className={`py-12`} id="message">
+    <section className={`py-8`} id="message">
       <h1
-        className={`my-12 
+        className={`my-8 
               text-[2rem] 
               font-bold 
               sm:text-[2rem] 
@@ -2762,13 +2771,13 @@ export const MessageList = () => {
         MESSAGE
       </h1>
       {messages != undefined && messages != null && messages!.length > 0 ? (
-        <div className={`flex flex-wrap gap-8`}>
+        <div className={`flex flex-wrap items-center justify-center gap-8`}>
           {messages?.map(({ id, email, message, name, date }) => (
             <motion.ul
               initial={{ scale: 1 }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.01 }}
               key={id}
-              className={`w-full rounded-xl bg-white p-8 text-violet shadow-[0_5px_15px_rgba(0,0,0,0.35)] md:w-1/2 lg:w-1/3`}
+              className={`w-full rounded-xl bg-white p-8 text-violet shadow-[0_5px_15px_rgba(0,0,0,0.35)] md:w-[45%] lg:w-[31%]`}
             >
               <li className={`flex w-full justify-end text-grey`}>
                 <FontAwesomeIcon

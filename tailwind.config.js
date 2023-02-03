@@ -52,30 +52,36 @@ module.exports = {
       green: "rgb(10,242,203)",
       salmon: "#ff0057",
       white: "#fff",
-      grey: "#787f85",
+      grey: "var(--grey)",
       violet: "#5a5271",
       lightViolet: "#2e205b",
       violet50: "#beb1e7",
       black: "#000",
       lightBlack: "#333",
+      grey500: "#3b3938",
 
       inputBg: "var(--bg-input)",
       inputBorder: "var(--input-border)",
       imputColor: "var(--input-color)",
     },
-    fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-    },
     extend: {
-      spacing: {
-        "nav-items-lg": "4rem",
-        "nav-items-md": "2rem",
+      gridTemplateColumns: {
+        hero: "1fr 25rem",
+        herMobile: "1fr",
       },
-      borderRadius: {
-        "4xl": "2rem",
+      keyframes: {
+        animation: {
+          "0%": { scale: 0, opacity: 0 },
+          "100%": { scale: 1, opacity: 1 },
+        },
+        galleryText: {
+          "0%": { transform: "translateY(-20px)", opacity: 0 },
+          "100%": { transform: "translateY(0)", opacity: 1 },
+        },
       },
-      margin: {
-        "4xl": "-21px 0 0",
+      animation: {
+        animation: "animation .8s ease",
+        galleryText: "galleryText  .8s ease",
       },
     },
   },

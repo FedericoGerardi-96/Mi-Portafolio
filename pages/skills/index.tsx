@@ -45,16 +45,15 @@ const Skills = () => {
           >
             MIS <span className={`text-salmon`}>SKILLS</span>
           </motion.h1>
-          <div className={`mt-11 flex flex-wrap items-center justify-evenly gap-6`}>
+          <div className={`mt-11 flex flex-wrap items-center justify-center gap-3`}>
             {Skills?.map((skill, i) => (
               <motion.div
                 key={skill.id}
                 className={`flex flex-col gap-4`}
                 initial={{ scale: 0 }}
-                animate={{ scale: 1, transition: { duration: 1, delay: i + 0.2 } }}
+                animate={{ scale: 1, transition: { duration: 0.5, delay: i * 0.5 } }}
               >
                 <CardSkills skills={skill} />
-                <h1 className={`mt-6 text-[2rem] text-text`}>{skill.Tittle}</h1>
               </motion.div>
             ))}
           </div>

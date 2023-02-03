@@ -7,6 +7,7 @@ import { Loader } from "../../components/Loader";
 import { PortfolioContext } from "../../context/portfolio";
 
 import { CardProyects } from "../../components";
+import { CardProyectMobile } from "../../components/CardProyectMobile";
 
 const Trabajos = () => {
   const [isLoading, setisLoading] = useState(true);
@@ -49,13 +50,24 @@ const Trabajos = () => {
             >
               MIS <span className={`text-salmon`}>PROYECTOS</span>
             </motion.h1>
+            <div className={`mt-12 hidden max-w-full flex-wrap justify-center gap-8 md:flex`}>
+              {Proyects?.map((proyect, i) => (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1, transition: { duration: 0.5, delay: i * 0.5 } }}
+                  key={proyect.id!}
+                >
+                  <CardProyects proyect={proyect} />
+                </motion.div>
+              ))}
+            </div>
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1, transition: { duration: 2 } }}
-              className={`flex flex-wrap items-center justify-evenly`}
+              className={`mt-12 flex max-w-full flex-wrap justify-center gap-8 md:hidden`}
             >
               {Proyects?.map((proyect) => (
-                <CardProyects key={proyect.id!} proyect={proyect} />
+                <CardProyectMobile key={proyect.id!} proyect={proyect} />
               ))}
             </motion.div>
           </motion.section>

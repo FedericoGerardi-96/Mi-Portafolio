@@ -8,8 +8,6 @@ import { AuthProvider } from "../context/auth";
 import { PortfolioProvider } from "../context/portfolio";
 
 import Container from "./_Container";
-import { useDrawerToggle } from "../hooks";
-import { Drawer } from "../components/drawer";
 import { useEffect } from "react";
 
 function MyApp(appProps: AppProps) {
